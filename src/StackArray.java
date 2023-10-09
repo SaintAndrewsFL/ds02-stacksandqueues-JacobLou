@@ -1,8 +1,50 @@
+import java.util.ArrayList;
 
+public class StackArray<T> {
+    private ArrayList<T> items;
 
-public class StackArray {
+    public StackArray() {
+        items = new ArrayList<>();
+    }
 
+    public T push(T item) {
+        items.add(item);
+        return item;
+    }
+
+    public T pop() {
+        if (isEmpty()) {
+            return null;
+        }
+        int lastIndex = items.size() - 1;
+        T removedItem = items.remove(lastIndex);
+        return removedItem;
+    }
+
+    public T peek() {
+        if (isEmpty()) {
+            return null;
+        }
+        int lastIndex = items.size() - 1;
+        return items.get(lastIndex);
+    }
+
+    public void display() {
+        for (T item : items) {
+            System.out.print(item + " ");
+        }
+        System.out.println();
+    }
+
+    public int size() {
+        return items.size();
+    }
+
+    public boolean isEmpty() {
+        return items.isEmpty();
+    }
 }
+
 
 
 /*

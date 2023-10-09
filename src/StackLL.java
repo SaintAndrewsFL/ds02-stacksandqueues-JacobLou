@@ -1,5 +1,47 @@
-public class StackLL {
+import java.util.LinkedList;
+
+public class StackLL<T> {
+    private LinkedList<T> items;
+
+    public StackLL() {
+        items = new LinkedList<>();
+    }
+
+    public T push(T item) {
+        items.addLast(item);
+        return item;
+    }
+
+    public T pop() {
+        if (isEmpty()) {
+            return null;
+        }
+        return items.removeLast();
+    }
+
+    public T peek() {
+        if (isEmpty()) {
+            return null;
+        }
+        return items.getLast();
+    }
+
+    public void display() {
+        for (T item : items) {
+            System.out.print(item + " ");
+        }
+        System.out.println();
+    }
+
+    public int size() {
+        return items.size();
+    }
+
+    public boolean isEmpty() {
+        return items.isEmpty();
+    }
 }
+
 
 
 /*

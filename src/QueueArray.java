@@ -1,8 +1,46 @@
+import java.util.ArrayList;
 
-public class QueueArray {
+public class QueueArray<T> {
+    private ArrayList<T> items;
+
+    public QueueArray() {
+        items = new ArrayList<>();
+    }
+
+    public T enqueue(T item) {
+        items.add(item);
+        return item;
+    }
+
+    public T dequeue() {
+        if (isEmpty()) {
+            return null;
+        }
+        return items.remove(0);
+    }
+
+    public T peek() {
+        if (isEmpty()) {
+            return null;
+        }
+        return items.get(0);
+    }
+
+    public void display() {
+        for (T item : items) {
+            System.out.print(item + " ");
+        }
+        System.out.println();
+    }
+
+    public int size() {
+        return items.size();
+    }
+
+    public boolean isEmpty() {
+        return items.isEmpty();
+    }
 }
-
-
 
 
 /*

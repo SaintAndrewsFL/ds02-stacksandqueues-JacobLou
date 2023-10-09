@@ -1,5 +1,45 @@
+import java.util.LinkedList;
 
-public class QueueLL {
+public class QueueLL<T> {
+    private LinkedList<T> items;
+
+    public QueueLL() {
+        items = new LinkedList<>();
+    }
+
+    public T enqueue(T item) {
+        items.addLast(item);
+        return item;
+    }
+
+    public T dequeue() {
+        if (isEmpty()) {
+            return null;
+        }
+        return items.removeFirst();
+    }
+
+    public T peek() {
+        if (isEmpty()) {
+            return null;
+        }
+        return items.getFirst();
+    }
+
+    public void display() {
+        for (T item : items) {
+            System.out.print(item + " ");
+        }
+        System.out.println();
+    }
+
+    public int size() {
+        return items.size();
+    }
+
+    public boolean isEmpty() {
+        return items.isEmpty();
+    }
 }
 
 
